@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Header(){
-    return  ( <h2>Hello world!</h2>);
+    return  ( <div className="navbar bg-dark rounded">< h2 className="text-white" > Hello world!</h2></div>);
 }
 
 export default Header;
