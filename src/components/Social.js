@@ -1,22 +1,14 @@
 import React from "react";
-
+import SocaileItem from "./SocialItem";
 function Social() {
   return (
     <div>
       {" "}
       <ul className="list-group">
-        <li className="list-group-item">
-          <input type="checkbox" id="firstChoice"></input>{" "}
-          <label htmlFor="firstChoice"> Facebook</label>
-        </li>
-        <li className="list-group-item">
-          <input type="checkbox" id="secondChoice"></input>{" "}
-          <label htmlFor="firstChoice"> Instagrame</label>{" "}
-        </li>
-        <li className="list-group-item">
-          <input type="checkbox" id="thirdChoice"></input>{" "}
-          <label htmlFor="firstChoice"> Twitetr</label>{" "}
-        </li>
+        <SocaileItem media="facebook" img="https://picsum.photos/50"/>
+        <SocaileItem media="instagram" img="https://picsum.photos/51"/>
+        <SocaileItem media="twitter" img="https://picsum.photos/52"/>
+       
       </ul>
       <br />{" "}
       <button className="btn btn-primary" id="theSubmit">
