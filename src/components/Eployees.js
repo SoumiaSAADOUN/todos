@@ -1,108 +1,49 @@
 import React from "react";
 import Employee from "./Employee";
+import employees from "../data/employees";
+
 class  Employees extends React.Component {
   constructor(){
     super();
     this.state={
-      infos: [
- 
-        {
-          id:"1",
-          nom:"saadoun",
-          prenom: "soumia",
-          img: "https://picsum.photos/120",
-          email:"es_saadoun@esi.dz",
-          phone:"+213698554743",
-          bio:"Flutter developer"
-      },
-      
-      {
-        id:"2",
-          nom:"saadoun",
-          prenom: "mohamed bakir",
-          img: "https://picsum.photos/121",
-          email:"med_bakir_saadoun@esi.dz",
-          phone:"+213698554743",
-          bio:"Full stack developer"
-      },
-      {
-        id:"3",
-          nom:"saadoun",
-          prenom: "aya",
-          img: "https://picsum.photos/122",
-          email:"aya_saadoun@esi.dz",
-          phone:"+213698554743",
-          bio:"designer"
-      },{
-        id:"4",
-          nom:"saadoun",
-          prenom: "soumia",
-          img: "https://picsum.photos/120",
-          email:"es_saadoun@esi.dz",
-          phone:"+213698554743",
-          bio:"Flutter developer"
-      },
-      
-      {
-        id:"5",
-          nom:"saadoun",
-          prenom: "mohamed bakir",
-          img: "https://picsum.photos/121",
-          email:"med_bakir_saadoun@esi.dz",
-          phone:"+213698554743",
-          bio:"Full stack developer"
-      },
-      {  id:"6",
-          nom:"saadoun",
-          prenom: "aya",
-          img: "https://picsum.photos/122",
-          email:"aya_saadoun@esi.dz",
-          phone:"+213698554743",
-          bio:"designer"
-      },{  id:"7",
-          nom:"saadoun",
-          prenom: "soumia",
-          img: "https://picsum.photos/120",
-          email:"es_saadoun@esi.dz",
-          phone:"+213698554743",
-          bio:"Flutter developer"
-      },
-      
-      {
-        id:"8",
-          nom:"saadoun",
-          prenom: "mohamed bakir",
-          img: "https://picsum.photos/121",
-          emai:"med_bakir_saadoun@esi.dz",
-          phone:"+213698554743",
-          bio:"Full stack developer"
-      },
-      {  id:"9",
-          nom:"saadoun",
-          prenom: "aya",
-          img: "https://picsum.photos/122",
-          email:"aya_saadoun@esi.dz",
-          phone:"+213698554743",
-          bio:"designer"
-      }
-       ]
-    }
+      index: 0,
+      infos: employees,
+      team:[]
+    };
+     this.clickHandler= this.clickHandler.bind(this);
   }
-  mapping(){
-    const items = this.state.infos.map((item)=>{
+  mapping(x){
+    const items = x.map((item)=>{
       return <Employee info={item} key={item.id}/>
      });
      return items;
+  }
+  clickHandler(){
+    // this.listing();
+     this.setState((prevState) => {
+      return {index: prevState.index+1}
+     })
+    this.state.team.push(employees[this.state.index])
+
+    console.log(this.state.team)
+  
+  }
+  listing(){
+    console.log(this.mapping()[this.state.index]);
+      this.setState((prevState)=>{
+        return{team: prevState.team.push(this.mapping()[this.state.index])}
+      })
+    
   }
   render(){
   return (
     <div className="row">
       {" "}
-      {this.mapping()}  
+      {this.mapping(this.state.team)}  
                
       <br />{" "}
-      <button className="btn btn-primary" id="theSubmit">
-        Submit
+      <button className="btn btn-primary" id="theSubmit" onClick={this.clickHandler }>
+        Show next
       </button>
     </div>
   );}
