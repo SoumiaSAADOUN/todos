@@ -2,7 +2,12 @@
 import Header from './components/Header';
 import Employees from './components/Eployees';
 import Text from './components/Text';
-function App() {
+import React from 'react';
+class App extends React.Component {
+  constructor(){
+    super();
+  }
+  render(){
   return (
     <div className="container">
              <Header />
@@ -10,7 +15,7 @@ function App() {
               <Text/>
              <Employees/>
     </div>
-  );
+  );}
 }
 
 export default App;
